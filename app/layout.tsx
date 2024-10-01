@@ -1,5 +1,6 @@
 import React from "react";
 import {Provider} from "jotai"
+import NextTopLoader from 'nextjs-toploader';
 import "react-toastify/dist/ReactToastify.css";
 import "simplebar-react/dist/simplebar.min.css";
 import "flatpickr/dist/themes/light.css";
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className="font-inter  custom-tippy dashcode-app">
           <Provider>
+          <NextTopLoader />
             {children}
           </Provider>
         </body>

@@ -1,9 +1,97 @@
 export const menuItems = [
   {
-    title: "Starter page",
+    title: "Dashboard",
     isHide: true,
-    icon: "heroicons:document-minus",
+    icon: "heroicons-outline:home",
     link: "/",
+  },
+  {
+    title: "Master Data",
+    isHide: true,
+    isOpen: true,
+    icon: "heroicons:circle-stack",
+    child: [
+      {
+        childtitle: "Staff",
+        childlink: "staff",
+        childicon: "heroicons:user",
+      },
+      {
+        childtitle: "Kerabat",
+        childlink: "kerabat",
+        childicon: "heroicons:user-group",
+      },
+      {
+        childtitle: "Dealer",
+        childlink: "dealer",
+        childicon: "heroicons:building-office",
+      },
+      {
+        childtitle: "Leasing",
+        childlink: "leasing",
+        childicon: "heroicons:currency-dollar"
+      },
+      {
+        childtitle: "Model",
+        childlink: "model",
+        childicon: "heroicons:document-text"
+      },
+      {
+        childtitle: "Hari Besar",
+        childlink: "hari_besar",
+        childicon: "heroicons:calendar"
+      },
+      {
+        childtitle: "Metode FU",
+        childlink: "metode_fu",
+        childicon: "heroicons:chat-bubble-left"
+      },
+      {
+        childtitle: "Keterangan FU",
+        childlink: "keterangan_fu",
+        childicon: "heroicons:table-cells"
+      },
+      {
+        childtitle: "Keterangan Hasil",
+        childlink: "keterangan_hasil",
+        childicon: "heroicons:table-cells-solid"
+      },
+      {
+        childtitle: "Hasil FU",
+        childlink: "hasil_fu",
+        childicon: "heroicons:presentation-chart-bar"
+      },
+      {
+        childtitle: "Pekerjaan",
+        childlink: "pekerjaan",
+        childicon: "heroicons:briefcase"
+      },
+      {
+        childtitle: "Pendidikan",
+        childlink: "pendidikan",
+        childicon: "heroicons:academic-cap"
+      },
+      {
+        childtitle: "Pengeluaran",
+        childlink: "pengeluaran",
+        childicon: "heroicons:credit-card"
+      },
+      {
+        childtitle: "Penghasilan",
+        childlink: "penghasilan",
+        childicon: "heroicons:document-currency-dollar"
+      },
+      {
+        childtitle: "Hobi",
+        childlink: "hobi",
+        childicon: "heroicons:camera"
+      },
+      {
+        childtitle: "Status Rumah",
+        childlink: "status_rumah",
+        childicon: "heroicons:home-modern"
+      },
+    ],
   },
 ];
 

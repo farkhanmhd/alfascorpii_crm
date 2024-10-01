@@ -62,13 +62,7 @@ const Submenu = ({ activeSubmenu, item, i, locationName }) => {
                       : "text-slate-600 dark:text-slate-300"
                   } text-sm flex space-x-3 items-center transition-all duration-150`}
                 >
-                  <span
-                    className={`${
-                      locationName === subItem.childlink
-                        ? " bg-slate-900 dark:bg-slate-300 ring-4 ring-opacity-[15%] ring-black-500 dark:ring-slate-300 dark:ring-opacity-20"
-                        : ""
-                    } h-2 w-2 rounded-full border border-slate-600 dark:border-white inline-block flex-none`}
-                  ></span>
+                  <Icon icon={subItem.childicon} width={18} />
                   <span className="flex-1">{subItem.childtitle}</span>
                 </span>
               </Link>
