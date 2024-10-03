@@ -1,9 +1,13 @@
-import React from 'react'
+import MasterTable from "@/components/partials/table/MasterTable";
+import statusRumahColumns from "@/components/partials/table/StatusRumahTableColumn";
+import { statusRumah } from "@/constant/data";
 
-const Page = () => {
+const Pekerjaan = () => {
   return (
-    <div>Staff</div>
-  )
-}
+    <div className="flex flex-col gap-y-4">
+      <MasterTable title="Pengeluaran" dataTable={statusRumah} dataColumns={statusRumahColumns} />
+    </div>
+  );
+};
 
-export default Page
+export default Pekerjaan;

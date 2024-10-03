@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import useSkin from "@/hooks/useSkin";
 
@@ -26,15 +28,9 @@ const Card = ({
 
   return (
     <div
-      className={`
-        card rounded-md   dark:bg-slate-800   ${
-          skin === "bordered"
-            ? " border border-slate-200 dark:border-slate-700"
-            : "shadow-base"
-        }
-   
-    ${className}
-        `}
+      className={`card rounded-md dark:bg-slate-800 ${
+        skin === "bordered" ? "border border-slate-200 dark:border-slate-700" : "shadow-base"
+      } ${className} `}
     >
       {(title || subtitle) && (
         <header className={`card-header ${noborder ? "no-border" : ""}`}>

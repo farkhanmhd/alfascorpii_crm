@@ -27,13 +27,13 @@ const Swicth = ({
   wrapperClass = " ",
   labelClass = "text-slate-500 dark:text-slate-400 text-sm leading-6",
   badge,
-} : ISwitch) => {
+}: ISwitch) => {
   return (
     <div>
       <label
         className={
-          `flex relative items-center ${
-            disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
+          `relative flex items-center ${
+            disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer "
           }` +
           "" +
           wrapperClass
@@ -44,43 +44,31 @@ const Swicth = ({
       >
         <input
           type="checkbox"
-          className="border absolute top-0 left-0 bottom-0 right-0 opacity-0"
-          checked={value}
+          className="absolute bottom-0 left-0 right-0 top-0 border opacity-0"
+          defaultChecked={value}
           id={id}
           disabled={disabled}
         />
         <div
-          className={`relative inline-flex h-6 w-[46px] ltr:mr-3 rtl:ml-3 items-center rounded-full transition-all duration-150
-          ${value ? activeClass : "bg-secondary-500"}
-          `}
+          className={`relative inline-flex h-6 w-[46px] items-center rounded-full transition-all duration-150 ltr:mr-3 rtl:ml-3 ${value ? activeClass : "bg-secondary-500"} `}
         >
           {badge && value && (
-            <span className="absolute leading-[1px] left-1 top-1/2 -translate-y-1/2 capitalize font-bold text-white tracking-[1px]">
-              {prevIcon ? (
-                <Icon icon={prevIcon} />
-              ) : (
-                <span className="text-[9px] ">on</span>
-              )}
+            <span className="absolute left-1 top-1/2 -translate-y-1/2 font-bold capitalize leading-[1px] tracking-[1px] text-white">
+              {prevIcon ? <Icon icon={prevIcon} /> : <span className="text-[9px]">on</span>}
             </span>
           )}
           {badge && !value && (
-            <span className="absolute right-1 leading-[1px] top-1/2 -translate-y-1/2 capitalize font-bold text-slate-900 tracking-[1px]">
-              {nextIcon ? (
-                <Icon icon={nextIcon} />
-              ) : (
-                <span className="text-[9px]">Off</span>
-              )}
+            <span className="absolute right-1 top-1/2 -translate-y-1/2 font-bold capitalize leading-[1px] tracking-[1px] text-slate-900">
+              {nextIcon ? <Icon icon={nextIcon} /> : <span className="text-[9px]">Off</span>}
             </span>
           )}
 
           <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-all duration-150 
-          ${
-            value
-              ? "ltr:translate-x-6 rtl:-translate-x-6"
-              : "ltr:translate-x-[2px] rtl:-translate-x-[2px]"
-          }
-          `}
+            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-all duration-150 ${
+              value
+                ? "ltr:translate-x-6 rtl:-translate-x-6"
+                : "ltr:translate-x-[2px] rtl:-translate-x-[2px]"
+            } `}
           />
         </div>
         {label && <span className={labelClass}>{label}</span>}

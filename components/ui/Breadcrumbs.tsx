@@ -1,59 +1,71 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { menuItems } from "@/constant/data";
 import Icon from "@/components/ui/Icon";
 
 const Breadcrumbs = () => {
   const location = usePathname();
-  const locationName = location.replace("/", "");
+  const locationNameFromPath = location.replace("/", "");
 
   const [isHide, setIsHide] = useState(null);
   const [groupTitle, setGroupTitle] = useState("");
+  const [groupIcon, setGroupIcon] = useState("");
+  const [locationName, setLocationName] = useState(locationNameFromPath); // Set default location name
 
   useEffect(() => {
-    const currentMenuItem = menuItems.find(
-      (item) => item.link === locationName
+    // Find the current parent menu item based on the path
+    const currentMenuItem = menuItems.find((item) => item.link === locationNameFromPath);
+
+    // Find the current child menu item
+    const currentChild = menuItems.find((item) =>
+      item.child?.find((child) => child.childlink === locationNameFromPath),
     );
 
-    const currentChild = menuItems.find((item: any) =>
-      item.child?.find((child) => child.childlink === locationName)
-    );
-
+    // If it's a parent item, set isHide and locationName based on the parent
     if (currentMenuItem) {
       setIsHide(currentMenuItem.isHide);
-    } else if (currentChild) {
-      setIsHide(currentChild?.isHide || false);
-      setGroupTitle(currentChild?.title);
+      setLocationName(currentMenuItem.title); // Set location name to the parent title
     }
-  }, [location, locationName]);
+    // If it's a child item, set isHide, groupTitle, groupIcon, and locationName based on the child
+    else if (currentChild) {
+      const matchedChild = currentChild.child.find(
+        (child) => child.childlink === locationNameFromPath,
+      );
+      setIsHide(currentChild.isHide || false);
+      setGroupTitle(currentChild.title);
+      setGroupIcon(currentChild.icon);
+      setLocationName(matchedChild?.childtitle); // Set location name to the child title
+    }
+  }, [location, locationNameFromPath]);
 
   return (
     <>
       {!isHide ? (
-        <div className="md:mb-6 mb-4 flex space-x-3 rtl:space-x-reverse">
+        <div className="mb-4 flex space-x-3 md:mb-6 rtl:space-x-reverse">
           <ul className="breadcrumbs">
             <li className="text-primary-500">
               <Link href="/dashboard" className="text-lg">
                 <Icon icon="heroicons-outline:home" />
               </Link>
-              <span className="breadcrumbs-icon rtl:transform rtl:rotate-180">
+              <span className="breadcrumbs-icon rtl:rotate-180 rtl:transform">
                 <Icon icon="heroicons:chevron-right" />
               </span>
             </li>
             {groupTitle && (
               <li className="text-primary-500">
-                <button type="button" className="capitalize">
-                  {groupTitle}
+                <button type="button" className="flex items-center space-x-2 capitalize">
+                  <Icon icon={groupIcon} width={18} />
+                  <span>{groupTitle}</span>
                 </button>
-                <span className="breadcrumbs-icon rtl:transform rtl:rotate-180">
+                <span className="breadcrumbs-icon rtl:rotate-180 rtl:transform">
                   <Icon icon="heroicons:chevron-right" />
                 </span>
               </li>
             )}
-            <li className="capitalize text-slate-500 dark:text-slate-400">
-              {locationName}
-            </li>
+            <li className="capitalize text-slate-500 dark:text-slate-400">{locationName}</li>
           </ul>
         </div>
       ) : null}

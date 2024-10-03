@@ -1,9 +1,18 @@
-import React from 'react'
+import MasterTable from "@/components/partials/table/MasterTable";
+import dealerColumns from "@/components/partials/table/DealerTableColumn";
+import { dealer } from "@/constant/data";
 
-const Page = () => {
+const Dealer = () => {
   return (
-    <div>Staff</div>
-  )
-}
+    <div className="flex flex-col gap-y-4">
+      <MasterTable
+        title="Dealer"
+        dataTable={dealer}
+        dataColumns={dealerColumns}
+        tableName="Dealer"
+      />
+    </div>
+  );
+};
 
-export default Page
+export default Dealer;

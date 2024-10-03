@@ -1,6 +1,22 @@
+"use client";
+
 import React from "react";
 import { Icon } from "@iconify/react";
-const Icons = ({ icon, className, width, rotate, hFlip, vFlip } : { icon?: string, className?: string, width?: number, rotate?: number, hFlip?: boolean, vFlip?: boolean}) => {
+const Icons = ({
+  icon,
+  className,
+  width,
+  rotate,
+  hFlip,
+  vFlip,
+}: {
+  icon?: string;
+  className?: string;
+  width?: number;
+  rotate?: number;
+  hFlip?: boolean;
+  vFlip?: boolean;
+}) => {
   return (
     <>
       <Icon

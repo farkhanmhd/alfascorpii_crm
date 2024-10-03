@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply h-full overflow-x-hidden dark:text-slate-300 text-slate-600 font-normal;
+    @apply h-full overflow-x-hidden bg-slate-100 font-normal text-slate-600 dark:text-slate-300;
   }
   .app-warp {
     &.light,
@@ -36,7 +36,7 @@
     > a,
     label,
     > * {
-      @apply mr-2 mb-2;
+      @apply mb-2 mr-2;
     }
   }
   .space-xy-6 {
@@ -45,7 +45,7 @@
     > a,
     label,
     > * {
-      @apply mr-4 mb-2;
+      @apply mb-2 mr-4;
     }
   }
 
