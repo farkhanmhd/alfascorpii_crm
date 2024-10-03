@@ -12,6 +12,7 @@ interface IRadio {
   labelClass?: string;
   checked?: boolean;
   className?: string;
+  defaultChecked?: boolean;
 }
 
 const Radio = ({
@@ -31,9 +32,7 @@ const Radio = ({
     <div>
       <label
         className={
-          `flex items-center ${
-            disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
-          }` +
+          `flex items-center ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer "}` +
           "" +
           wrapperClass
         }
@@ -50,15 +49,12 @@ const Radio = ({
           disabled={disabled}
         />
         <span
-          className={` flex-none  bg-white dark:bg-slate-500 rounded-full border inline-flex  ltr:mr-3 rtl:ml-3 relative transition-all duration-150
-          ${className}
-          ${
+          className={`relative inline-flex flex-none rounded-full border bg-white transition-all duration-150 dark:bg-slate-500 ltr:mr-3 rtl:ml-3 ${className} ${
             checked
               ? activeClass +
-                " ring-[6px]  ring-inset ring-offset-2 dark:ring-offset-slate-600  dark:ring-offset-4 border-slate-700"
+                " border-slate-700 ring-[6px] ring-inset ring-offset-2 dark:ring-offset-4 dark:ring-offset-slate-600"
               : "border-slate-400 dark:border-slate-600 dark:ring-slate-700"
-          }
-          `}
+          } `}
         ></span>
         {label && <span className={labelClass}>{label}</span>}
       </label>

@@ -13,8 +13,8 @@ const Page = () => {
   const { id } = useParams();
   const router = useRouter();
   const { register } = useForm();
-  const [selectedStatus, setSelectedStatus] = useState("SHOW");
   const selectedMetode = metodeFollowUp.find((item) => item.id === Number(id));
+  const [selectedStatus, setSelectedStatus] = useState(selectedMetode?.status);
 
   const handleStatusChange = (e) => {
     setSelectedStatus(e.target.value);
@@ -40,7 +40,7 @@ const Page = () => {
               value="SHOW"
               activeClass="ring-success-500 border-success-500"
               onChange={handleStatusChange}
-              checked={selectedMetode?.status === "SHOW"}
+              checked={selectedStatus === "SHOW"}
             />
             <Radio
               id="hide"
@@ -49,7 +49,7 @@ const Page = () => {
               value="HIDE"
               activeClass="ring-danger-500 border-danger-500"
               onChange={handleStatusChange}
-              checked={selectedMetode?.status === "HIDE"}
+              checked={selectedStatus === "HIDE"}
             />
           </div>
         </div>

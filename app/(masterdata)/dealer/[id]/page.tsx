@@ -13,8 +13,8 @@ const Page = () => {
   const router = useRouter();
   const { id } = useParams();
   const { register } = useForm();
-  const [selectedStatus, setSelectedStatus] = useState("SHOW");
   const selectedDealer = dealer.find((dealer) => dealer.id === Number(id));
+  const [selectedStatus, setSelectedStatus] = useState(selectedDealer?.status);
 
   const inputFields = [
     { id: "kode", label: "Kode", placeholder: "FA12345", defaultValue: selectedDealer?.kode },
@@ -53,7 +53,7 @@ const Page = () => {
               value="SHOW"
               activeClass="ring-success-500 border-success-500"
               onChange={handleStatusChange}
-              checked={selectedDealer?.status === "SHOW"}
+              checked={selectedStatus === "SHOW"}
             />
             <Radio
               id="hide"
@@ -62,7 +62,7 @@ const Page = () => {
               value="HIDE"
               activeClass="ring-danger-500 border-danger-500"
               onChange={handleStatusChange}
-              checked={selectedDealer?.status === "HIDE"}
+              checked={selectedStatus === "HIDE"}
             />
           </div>
         </div>

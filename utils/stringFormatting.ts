@@ -5,3 +5,7 @@ export const formatToRupiah = (value) => {
     minimumFractionDigits: 2,
   }).format(value);
 };
+
+export const splitAndJoinUnderscore = (str) => {
+  return str.split("_").join(" ");
+};

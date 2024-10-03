@@ -11,8 +11,8 @@ import Radio from "@/components/ui/Radio";
 const Page = () => {
   const router = useRouter();
   const { register } = useForm();
-  const [selectedKategori, setSelectedKategori] = useState("CONTACTED");
   const [selectedStatus, setSelectedStatus] = useState("CONTACTED");
+  const [selectedKategori, setSelectedKategori] = useState("NOT CONTACTED");
   const [selectedTampil, setSelectedTampil] = useState("SHOW");
 
   const handleKategoriChange = (e) => {

@@ -67,7 +67,7 @@ const Page = () => {
           <Button
             type="submit"
             className="btn-primary w-full self-end sm:order-2 sm:w-max"
-            text="Add Staff"
+            text="Add Dealer"
             icon="heroicons-outline:plus"
           />
         </div>

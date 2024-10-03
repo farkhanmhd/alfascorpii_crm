@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { menuItems } from "@/constant/data";
 import Icon from "@/components/ui/Icon";
+import { splitAndJoinUnderscore } from "@/utils/stringFormatting";
 
 const Breadcrumbs = () => {
   const location = usePathname();
@@ -70,14 +71,16 @@ const Breadcrumbs = () => {
             {crumbs.map((crumb, index) =>
               index !== crumbs.length - 1 ? (
                 <li key={index} className="capitalize text-primary-500">
-                  <Link href={`/${crumb}`}>{crumb}</Link>
+                  <Link href={`/${crumb}`} className="capitalize">
+                    {splitAndJoinUnderscore(crumb)}
+                  </Link>
                   <span className="breadcrumbs-icon rtl:rotate-180 rtl:transform">
                     <Icon icon="heroicons:chevron-right" />
                   </span>
                 </li>
               ) : (
                 <li key={index} className="capitalize text-slate-500 dark:text-slate-400">
-                  {crumb}
+                  {splitAndJoinUnderscore(crumb)}
                 </li>
               ),
             )}

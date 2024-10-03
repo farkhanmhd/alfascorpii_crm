@@ -13,11 +13,10 @@ const Page = () => {
   const { id } = useParams();
   const router = useRouter();
   const { register } = useForm();
-  const [selectedKategori, setSelectedKategori] = useState("CONTACTED");
-  const [selectedStatus, setSelectedStatus] = useState("CONTACTED");
-  const [selectedTampil, setSelectedTampil] = useState("SHOW");
-
   const selectedKeterangan = keteranganFU.find((k) => k.id === Number(id));
+  const [selectedKategori, setSelectedKategori] = useState(selectedKeterangan.kategori_hasil);
+  const [selectedStatus, setSelectedStatus] = useState(selectedKeterangan.status);
+  const [selectedTampil, setSelectedTampil] = useState(selectedKeterangan.tampil);
 
   const handleKategoriChange = (e) => {
     setSelectedKategori(e.target.value);
@@ -45,7 +44,7 @@ const Page = () => {
                 value="CONTACTED"
                 activeClass="ring-success-500 border-success-500"
                 onChange={handleStatusChange}
-                checked={selectedKeterangan.status === "CONTACTED"}
+                checked={selectedStatus === "CONTACTED"}
               />
               <Radio
                 id="not_contacted_status"
@@ -54,7 +53,7 @@ const Page = () => {
                 value="NOT CONTACTED"
                 activeClass="ring-danger-500 border-danger-500"
                 onChange={handleStatusChange}
-                checked={selectedKeterangan.status === "NOT CONTACTED"}
+                checked={selectedStatus === "NOT CONTACTED"}
               />
             </div>
           </div>
@@ -68,7 +67,7 @@ const Page = () => {
                 value="NOT CONTACTED"
                 activeClass="ring-primary-500 border-primary-500"
                 onChange={handleKategoriChange}
-                checked={selectedKeterangan.kategori_hasil === "NOT CONTACTED"}
+                checked={selectedKategori === "NOT CONTACTED"}
               />
               <Radio
                 id="prospect"
@@ -77,7 +76,7 @@ const Page = () => {
                 value="PROSPECT"
                 activeClass="ring-success-500 border-success-500"
                 onChange={handleKategoriChange}
-                checked={selectedKeterangan.kategori_hasil === "PROSPECT"}
+                checked={selectedKategori === "PROSPECT"}
               />
               <Radio
                 id="tidak-berminat"
@@ -86,7 +85,7 @@ const Page = () => {
                 value="TIDAK BERMINAT"
                 activeClass="ring-danger-500 border-danger-500"
                 onChange={handleKategoriChange}
-                checked={selectedKeterangan.kategori_hasil === "TIDAK BERMINAT"}
+                checked={selectedKategori === "TIDAK BERMINAT"}
               />
             </div>
           </div>
@@ -107,7 +106,7 @@ const Page = () => {
               value="SHOW"
               activeClass="ring-success-500 border-success-500"
               onChange={handleTampilChange}
-              checked={selectedKeterangan.tampil === "SHOW"}
+              checked={selectedTampil === "SHOW"}
             />
             <Radio
               id="hide"
@@ -116,7 +115,7 @@ const Page = () => {
               value="HIDE"
               activeClass="ring-danger-500 border-danger-500"
               onChange={handleTampilChange}
-              checked={selectedKeterangan.tampil === "HIDE"}
+              checked={selectedTampil === "HIDE"}
             />
           </div>
         </div>
