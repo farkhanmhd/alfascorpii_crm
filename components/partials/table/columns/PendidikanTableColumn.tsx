@@ -39,13 +39,6 @@ const pendidikanColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default pendidikanColumns;

@@ -1,3 +1,5 @@
+import { getRandomNumber } from "@/utils/numbers";
+
 export const menuItems = [
   {
     title: "Dashboard",
@@ -656,456 +658,171 @@ export const files = [
   },
 ];
 
-export const staff = [
-  {
-    id: 1,
-    username: "vxghvboqah",
-    nama: "Olivia Miller",
-    nip: "13132150",
-    status: "Valid",
-  },
-  {
-    id: 2,
-    username: "bwgdinarrc",
-    nama: "Michael Smith",
-    nip: "09900425",
-    status: "Suspend",
-  },
-  {
-    id: 3,
-    username: "doocorrjyt",
-    nama: "Daniel Williams",
-    nip: "48797323",
-    status: "Resign",
-  },
-  {
-    id: 4,
-    username: "tirafosyoo",
-    nama: "Olivia Miller",
-    nip: "67248756",
-    status: "Valid",
-  },
-  {
-    id: 5,
-    username: "yiuwbecbzm",
-    nama: "Michael Miller",
-    nip: "10088375",
-    status: "Suspend",
-  },
-  {
-    id: 6,
-    username: "xanykcfjet",
-    nama: "David Brown",
-    nip: "49481180",
-    status: "Resign",
-  },
-  {
-    id: 7,
-    username: "ixaqvkrytr",
-    nama: "Jane Garcia",
-    nip: "71814072",
-    status: "Valid",
-  },
-  {
-    id: 8,
-    username: "akwazzxvdg",
-    nama: "Daniel Clark",
-    nip: "92273316",
-    status: "Suspend",
-  },
-  {
-    id: 9,
-    username: "dplljechod",
-    nama: "Olivia Johnson",
-    nip: "76546910",
-    status: "Resign",
-  },
-  {
-    id: 10,
-    username: "axwsokojfj",
-    nama: "Sarah Davis",
-    nip: "55464116",
-    status: "Valid",
-  },
-  {
-    id: 11,
-    username: "jhgfcxzasd",
-    nama: "Emily Chen",
-    nip: "84213579",
-    status: "Suspend",
-  },
-  {
-    id: 12,
-    username: "poiuytrewq",
-    nama: "David Lee",
-    nip: "35198246",
-    status: "Resign",
-  },
-  {
-    id: 13,
-    username: "asdfghjkl",
-    nama: "Sophia Patel",
-    nip: "21987432",
-    status: "Valid",
-  },
-  {
-    id: 14,
-    username: "zxcvbnmko",
-    nama: "Michael Kim",
-    nip: "46782319",
-    status: "Suspend",
-  },
-  {
-    id: 15,
-    username: "qwertyuiop",
-    nama: "Olivia Brown",
-    nip: "98563214",
-    status: "Resign",
-  },
-  {
-    id: 16,
-    username: "mnbvcxzlk",
-    nama: "Emily Taylor",
-    nip: "75321984",
-    status: "Valid",
-  },
-  {
-    id: 17,
-    username: "jhgfdsaqw",
-    nama: "David White",
-    nip: "42198537",
-    status: "Suspend",
-  },
-  {
-    id: 18,
-    username: "poiuytrew",
-    nama: "Sophia Martin",
-    nip: "96385214",
-    status: "Resign",
-  },
-  {
-    id: 19,
-    username: "asdfghjkl",
-    nama: "Michael Davis",
-    nip: "13579246",
-    status: "Valid",
-  },
-  {
-    id: 20,
-    username: "zxcvbnmko",
-    nama: "Emily Garcia",
-    nip: "98765432",
-    status: "Suspend",
-  },
-  {
-    id: 21,
-    username: "lkjhgfdsa",
-    nama: "David Brooks",
-    nip: "65432198",
-    status: "Resign",
-  },
-  {
-    id: 22,
-    username: "poiuytrew",
-    nama: "Sophia Rodriguez",
-    nip: "98213574",
-    status: "Valid",
-  },
-  {
-    id: 23,
-    username: "mnbvcxza",
-    nama: "Emily Chen",
-    nip: "75321985",
-    status: "Suspend",
-  },
-  {
-    id: 24,
-    username: "jhgfdsaq",
-    nama: "Michael Brown",
-    nip: "42198532",
-    status: "Resign",
-  },
-  {
-    id: 25,
-    username: "asdfghjk",
-    nama: "Olivia Taylor",
-    nip: "13579243",
-    status: "Valid",
-  },
-  {
-    id: 26,
-    username: "zxcvbnml",
-    nama: "David White",
-    nip: "98765421",
-    status: "Suspend",
-  },
-  {
-    id: 27,
-    username: "qwertyui",
-    nama: "Sophia Martin",
-    nip: "96385213",
-    status: "Resign",
-  },
-  {
-    id: 28,
-    username: "lkjhgfds",
-    nama: "Emily Garcia",
-    nip: "65432197",
-    status: "Valid",
-  },
-  {
-    id: 29,
-    username: "poiuytrew",
-    nama: "Michael Davis",
-    nip: "98213573",
-    status: "Suspend",
-  },
-  {
-    id: 30,
-    username: "mnbvcxza",
-    nama: "Olivia Brooks",
-    nip: "75321984",
-    status: "Resign",
-  },
-  {
-    id: 31,
-    username: "asdfghjkl",
-    nama: "David Lee",
-    nip: "21987432",
-    status: "Valid",
-  },
-  {
-    id: 32,
-    username: "zxcvbnmko",
-    nama: "Emily Patel",
-    nip: "46782319",
-    status: "Suspend",
-  },
-  {
-    id: 33,
-    username: "qwertyuiop",
-    nama: "Sophia Kim",
-    nip: "98563214",
-    status: "Resign",
-  },
-  {
-    id: 34,
-    username: "mnbvcxzlk",
-    nama: "Michael Brown",
-    nip: "75321984",
-    status: "Valid",
-  },
-  {
-    id: 35,
-    username: "jhgfdsaqw",
-    nama: "Olivia Taylor",
-    nip: "42198537",
-    status: "Suspend",
-  },
-  {
-    id: 36,
-    username: "poiuytrew",
-    nama: "Emily Chen",
-    nip: "96385214",
-    status: "Resign",
-  },
-  {
-    id: 37,
-    username: "lkjhgfdsa",
-    nama: "David White",
-    nip: "65432198",
-    status: "Valid",
-  },
-  {
-    id: 38,
-    username: "asdfghjkl",
-    nama: "Sophia Martin",
-    nip: "13579246",
-    status: "Suspend",
-  },
-  {
-    id: 39,
-    username: "zxcvbnmko",
-    nama: "Michael Davis",
-    nip: "98765432",
-    status: "Resign",
-  },
-  {
-    id: 40,
-    username: "qwertyuiop",
-    nama: "Olivia Garcia",
-    nip: "98213574",
-    status: "Valid",
-  },
-  {
-    id: 41,
-    username: "mnbvcxzlk",
-    nama: "Emily Lee",
-    nip: "75321985",
-    status: "Suspend",
-  },
-  {
-    id: 42,
-    username: "jhgfdsaqw",
-    nama: "David Patel",
-    nip: "42198532",
-    status: "Resign",
-  },
-  {
-    id: 43,
-    username: "poiuytrew",
-    nama: "Sophia Kim",
-    nip: "96385213",
-    status: "Valid",
-  },
-  {
-    id: 44,
-    username: "lkjhgfdsa",
-    nama: "Michael Taylor",
-    nip: "65432197",
-    status: "Suspend",
-  },
-  {
-    id: 45,
-    username: "asdfghjkl",
-    nama: "Olivia White",
-    nip: "13579243",
-    status: "Resign",
-  },
-  {
-    id: 46,
-    username: "zxcvbnmko",
-    nama: "Emily Martin",
-    nip: "98765421",
-    status: "Valid",
-  },
-  {
-    id: 47,
-    username: "qwertyuiop",
-    nama: "David Davis",
-    nip: "98563214",
-    status: "Suspend",
-  },
-  {
-    id: 48,
-    username: "mnbvcxzlk",
-    nama: "Sophia Garcia",
-    nip: "75321984",
-    status: "Resign",
-  },
-  {
-    id: 49,
-    username: "jhgfdsaqw",
-    nama: "Michael Brown",
-    nip: "42198537",
-    status: "Valid",
-  },
-  {
-    id: 50,
-    username: "poiuytrew",
-    nama: "Olivia Chen",
-    nip: "96385214",
-    status: "Suspend",
-  },
+const randomNames = [
+  "Olivia",
+  "Michael",
+  "Daniel",
+  "Jane",
+  "Sarah",
+  "Emily",
+  "David",
+  "Sophia",
+  "Kim",
+  "Taylor",
+  "Garcia",
+  "Brown",
+  "Lee",
+  "Patel",
+  "Martin",
+  "Johnson",
+  "Smith",
+  "Davis",
+  "Clark",
+  "Miller",
 ];
 
-export const kerabat = [
-  {
-    id: 1,
-    kerabat: "AYAH-ANAK",
-    status: "SHOW",
-  },
-  {
-    id: 2,
-    kerabat: "KONSUMEN LANGSUNG",
-    status: "HIDE",
-  },
-  {
-    id: 3,
-    kerabat: "IBU-ANAK",
-    status: "SHOW",
-  },
-  {
-    id: 4,
-    kerabat: "SUAMI-ISTRI",
-    status: "HIDE",
-  },
-  {
-    id: 5,
-    kerabat: "KAKAK-ADIK",
-    status: "SHOW",
-  },
-  {
-    id: 6,
-    kerabat: "SAUDARA",
-    status: "HIDE",
-  },
-  {
-    id: 7,
-    kerabat: "TETANGGA",
-    status: "SHOW",
-  },
-  {
-    id: 8,
-    kerabat: "PAMAN-PONAKAN",
-    status: "HIDE",
-  },
-  {
-    id: 9,
-    kerabat: "TANTE-PONAKAN",
-    status: "SHOW",
-  },
-  {
-    id: 10,
-    kerabat: "TEMAN",
-    status: "HIDE",
-  },
-  {
-    id: 11,
-    kerabat: "LAINNYA",
-    status: "SHOW",
-  },
+const randomSurnames = [
+  "Miller",
+  "Smith",
+  "Williams",
+  "Johnson",
+  "Brown",
+  "Taylor",
+  "Anderson",
+  "Thomas",
+  "Jackson",
+  "White",
 ];
 
-export const dealer = [
-  { id: 1, kode: "FA00001", dealer: "ALFA MILLENIUM", status: "SHOW" },
-  { id: 2, kode: "FA00002", dealer: "ANGGA MOTOR", status: "HIDE" },
-  { id: 3, kode: "FD00012", dealer: "ANGKASA RAYA", status: "SHOW" },
-  { id: 4, kode: "FD00021", dealer: "ANUGRAH MOTOR", status: "HIDE" },
-  { id: 5, kode: "FB00385", dealer: "ASLI MOTOR", status: "SHOW" },
-  { id: 6, kode: "FEFB001", dealer: "ASLI MOTOR 1", status: "HIDE" },
-  { id: 7, kode: "FEFB002", dealer: "ASLI MOTOR 2", status: "SHOW" },
-  { id: 8, kode: "FEFB003", dealer: "ASLI MOTOR 3", status: "HIDE" },
-  { id: 9, kode: "FEFB004", dealer: "ASLI MOTOR 4", status: "SHOW" },
-  { id: 10, kode: "FDFA002", dealer: "ASPA 2", status: "HIDE" },
-  { id: 11, kode: "FA00003", dealer: "DEALER A", status: "SHOW" },
-  { id: 12, kode: "FA00004", dealer: "DEALER B", status: "HIDE" },
-  { id: 13, kode: "FA00005", dealer: "DEALER C", status: "SHOW" },
-  { id: 14, kode: "FA00006", dealer: "DEALER D", status: "HIDE" },
-  { id: 15, kode: "FA00007", dealer: "DEALER E", status: "SHOW" },
-  { id: 16, kode: "FA00008", dealer: "DEALER F", status: "HIDE" },
-  { id: 17, kode: "FA00009", dealer: "DEALER G", status: "SHOW" },
-  { id: 18, kode: "FA00010", dealer: "DEALER H", status: "HIDE" },
-  { id: 19, kode: "FA00011", dealer: "DEALER I", status: "SHOW" },
-  { id: 20, kode: "FA00012", dealer: "DEALER J", status: "HIDE" },
+const generateRandomName = () => {
+  const firstName = randomNames[Math.floor(Math.random() * randomNames.length)];
+  const lastName = randomSurnames[Math.floor(Math.random() * randomSurnames.length)];
+  return `${firstName} ${lastName}`;
+};
+
+const generateRandomUsername = () => {
+  const usernameLength = 10;
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  let username = "";
+
+  for (let i = 0; i < usernameLength; i++) {
+    username += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return username;
+};
+
+const generateRandomNip = () => {
+  return Math.floor(10000000 + Math.random() * 90000000).toString();
+};
+
+const randomStafStatuses = ["Valid", "Suspend", "Resign"];
+
+const generateRandomStaff = (count) => {
+  return Array.from({ length: count }, (_, index) => ({
+    id: index + 1,
+    username: generateRandomUsername(),
+    nama: generateRandomName(),
+    nip: generateRandomNip(),
+    status: randomStafStatuses[Math.floor(Math.random() * randomStafStatuses.length)],
+  }));
+};
+
+// Exporting the generated staff data
+export const staff = generateRandomStaff(50);
+
+const relationships = [
+  "AYAH-ANAK",
+  "KONSUMEN LANGSUNG",
+  "IBU-ANAK",
+  "SUAMI-ISTRI",
+  "KAKAK-ADIK",
+  "SAUDARA",
+  "TETANGGA",
+  "PAMAN-PONAKAN",
+  "TANTE-PONAKAN",
+  "TEMAN",
+  "LAINNYA",
 ];
 
-export const leasing = [
-  { id: 1, leasing: "BAF" },
-  { id: 2, leasing: "SOF" },
-  { id: 3, leasing: "ADIRA" },
-  { id: 4, leasing: "MAF" },
-  { id: 5, leasing: "CSF" },
-  { id: 6, leasing: "IMFI" },
-  { id: 7, leasing: "INDOMOBIL" },
-  { id: 8, leasing: "BANK SUMUT" },
-  { id: 9, leasing: "MANDALA" },
-  { id: 10, leasing: "MUF" },
-  { id: 11, leasing: "WOM" },
-  { id: 12, leasing: "MMF" },
-  { id: 13, leasing: "MCF" },
-  { id: 14, leasing: "OTHERS" },
+const randomStatuses = ["SHOW", "HIDE"];
+
+const generateKerabat = () => {
+  return relationships.map((relationship, index) => ({
+    id: index + 1,
+    kerabat: relationship,
+    status: randomStatuses[Math.floor(Math.random() * randomStatuses.length)],
+  }));
+};
+
+// Exporting the generated kerabat data
+export const kerabat = generateKerabat();
+
+const dealerNames = [
+  "ALFA MILLENIUM",
+  "ANGGA MOTOR",
+  "ANGKASA RAYA",
+  "ANUGRAH MOTOR",
+  "ASLI MOTOR",
+  "ASLI MOTOR 1",
+  "ASLI MOTOR 2",
+  "ASLI MOTOR 3",
+  "ASLI MOTOR 4",
+  "ASPA 2",
+  "DEALER A",
+  "DEALER B",
+  "DEALER C",
+  "DEALER D",
+  "DEALER E",
+  "DEALER F",
+  "DEALER G",
+  "DEALER H",
+  "DEALER I",
+  "DEALER J",
 ];
+
+const generateDealerCode = (index) => {
+  return `FA${String(index + 1).padStart(5, "0")}`;
+};
+
+const generateDealer = () => {
+  return dealerNames.map((dealerName, index) => ({
+    id: index + 1,
+    kode: generateDealerCode(index),
+    dealer: dealerName,
+    status: randomStatuses[Math.floor(Math.random() * randomStatuses.length)],
+  }));
+};
+
+// Exporting the generated dealer data
+export const dealer = generateDealer();
+
+const leasingNames = [
+  "BAF",
+  "SOF",
+  "ADIRA",
+  "MAF",
+  "CSF",
+  "IMFI",
+  "INDOMOBIL",
+  "BANK SUMUT",
+  "MANDALA",
+  "MUF",
+  "WOM",
+  "MMF",
+  "MCF",
+  "OTHERS",
+];
+
+// Generate the leasing array
+const generateLeasing = () => {
+  return leasingNames.map((leasingName, index) => ({
+    id: index + 1,
+    leasing: leasingName,
+  }));
+};
+
+// Exporting the generated leasing data
+export const leasing = generateLeasing();
 
 export const hariBesar = [
   {
@@ -1660,3 +1377,29 @@ export const statusRumah = [
     status: "SHOW",
   },
 ];
+
+const randomBranches = [
+  "AR HAKIM",
+  "Jalan Merdeka",
+  "Sudirman",
+  "Brigjen Katamso",
+  "Jalan Gatot Subroto",
+  "MangunSarkoro",
+  "Iskandar Muda",
+  "Ahmad Yani",
+  "Rasuna Said",
+  "Cipto Mangunkusumo",
+];
+
+const generateRandomWewenang = (count) => {
+  return Array.from({ length: count }, (_, index) => ({
+    id: index + 1,
+    kode: `FAFA${getRandomNumber()}`,
+    nama: `PT. ALFA SCORPII - ${randomBranches[index % randomBranches.length]}`,
+  }));
+};
+
+export const wewenangMedan = generateRandomWewenang(10);
+export const wewenangAceh = generateRandomWewenang(10);
+export const wewenangPekanBaru = generateRandomWewenang(10);
+export const wewenangeKepRiau = generateRandomWewenang(10);

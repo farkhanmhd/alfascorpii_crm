@@ -32,13 +32,6 @@ const statusRumahColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default statusRumahColumns;

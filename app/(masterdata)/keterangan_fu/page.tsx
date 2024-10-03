@@ -10,6 +10,7 @@ const KeteranganFU = () => {
         title="Keterangan FU"
         dataTable={keteranganFU}
         dataColumns={keteranganFUColumns}
+        tableName="keterangan_fu"
       />
     </div>
   );

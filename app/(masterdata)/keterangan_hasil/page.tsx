@@ -10,6 +10,7 @@ const KeteranganHasil = () => {
         title="Keterangan Hasil"
         dataTable={keteranganHasil}
         dataColumns={keteranganHasilColumns}
+        tableName="keterangan_hasil"
       />
     </div>
   );

@@ -39,13 +39,6 @@ const keteranganHasilColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default keteranganHasilColumns;

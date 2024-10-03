@@ -33,13 +33,6 @@ const kerabatColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default kerabatColumns;

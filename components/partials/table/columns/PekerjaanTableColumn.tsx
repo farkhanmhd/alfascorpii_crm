@@ -39,13 +39,6 @@ const pekerjaanColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default pekerjaanColumns;

@@ -14,7 +14,7 @@ const Breadcrumbs = () => {
   const [groupTitle, setGroupTitle] = useState("");
   const [groupIcon, setGroupIcon] = useState("");
   const [locationName, setLocationName] = useState(locationNameFromPath); // Set default location name
-  const [crumbs, setCrumbs] = useState(locationNameFromPath.split("/"));
+  const crumbs = locationNameFromPath.split("/");
 
   useEffect(() => {
     // Find the current parent menu item based on the path

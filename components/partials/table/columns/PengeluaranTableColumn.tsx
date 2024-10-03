@@ -55,13 +55,6 @@ const pengeluaranColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default pengeluaranColumns;

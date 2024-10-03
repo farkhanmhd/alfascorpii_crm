@@ -4,7 +4,12 @@ import dPackModelColumn from "@/components/partials/table/columns/DPackModelColu
 const Page = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="DPACK Model" dataTable={[]} dataColumns={dPackModelColumn} />
+      <MasterTable
+        title="DPACK Model"
+        dataTable={[]}
+        dataColumns={dPackModelColumn}
+        tableName="dpack_model"
+      />
     </div>
   );
 };

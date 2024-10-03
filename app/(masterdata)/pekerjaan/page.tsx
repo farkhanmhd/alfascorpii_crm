@@ -5,7 +5,12 @@ import { pekerjaan } from "@/constant/data";
 const Pekerjaan = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Pekerjaan" dataTable={pekerjaan} dataColumns={pekerjaanColumns} />
+      <MasterTable
+        title="Pekerjaan"
+        dataTable={pekerjaan}
+        dataColumns={pekerjaanColumns}
+        tableName="pekerjaan"
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { staff } from "@/constant/data";
 const Page = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Staff" dataTable={staff} dataColumns={staffColumns} />
+      <MasterTable title="Staff" dataTable={staff} dataColumns={staffColumns} tableName="staff" />
     </div>
   );
 };

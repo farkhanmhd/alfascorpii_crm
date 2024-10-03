@@ -50,13 +50,6 @@ const staffColumns = [
       );
     },
   },
-  {
-    Header: "action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default staffColumns;

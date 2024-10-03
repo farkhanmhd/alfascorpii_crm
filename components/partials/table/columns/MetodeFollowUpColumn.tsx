@@ -33,13 +33,6 @@ const metodeFollowUpColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default metodeFollowUpColumns;

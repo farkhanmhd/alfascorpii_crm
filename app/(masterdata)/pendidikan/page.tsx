@@ -5,7 +5,12 @@ import { pendidikan } from "@/constant/data";
 const Pekerjaan = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Pendidikan" dataTable={pendidikan} dataColumns={pendidikanColumns} />
+      <MasterTable
+        title="Pendidikan"
+        dataTable={pendidikan}
+        dataColumns={pendidikanColumns}
+        tableName="pendidikan"
+      />
     </div>
   );
 };

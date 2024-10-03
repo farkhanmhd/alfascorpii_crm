@@ -5,7 +5,7 @@ import { hobi } from "@/constant/data";
 const Pekerjaan = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Pendidikan" dataTable={hobi} dataColumns={hobiColumns} />
+      <MasterTable title="Pendidikan" dataTable={hobi} dataColumns={hobiColumns} tableName="hobi" />
     </div>
   );
 };

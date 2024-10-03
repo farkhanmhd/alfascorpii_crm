@@ -39,13 +39,6 @@ const keteranganFUColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default keteranganFUColumns;

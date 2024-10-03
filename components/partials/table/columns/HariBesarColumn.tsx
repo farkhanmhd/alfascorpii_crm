@@ -54,13 +54,6 @@ const hariBesarColumn = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
 export default hariBesarColumn;

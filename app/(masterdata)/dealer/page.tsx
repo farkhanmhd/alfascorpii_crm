@@ -5,7 +5,12 @@ import { dealer } from "@/constant/data";
 const Dealer = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Dealer" dataTable={dealer} dataColumns={dealerColumns} />
+      <MasterTable
+        title="Dealer"
+        dataTable={dealer}
+        dataColumns={dealerColumns}
+        tableName="dealer"
+      />
     </div>
   );
 };

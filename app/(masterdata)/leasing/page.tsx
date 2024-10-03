@@ -5,7 +5,12 @@ import { leasing } from "@/constant/data";
 const Leasing = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Leasing" dataTable={leasing} dataColumns={leasingColumn} />
+      <MasterTable
+        title="Leasing"
+        dataTable={leasing}
+        dataColumns={leasingColumn}
+        tableName="leasing"
+      />
     </div>
   );
 };

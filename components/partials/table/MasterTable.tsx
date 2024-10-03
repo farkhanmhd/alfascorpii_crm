@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useMemo } from "react";
-import Link from "next/link";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import { useTable, useRowSelect, useSortBy, useGlobalFilter, usePagination } from "react-table";
 import GlobalFilter from "./GlobalFilter";
 import Button from "@/components/ui/Button";
+import ActionColumn from "./ActionColumn";
 
-const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) => {
+const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns, tableName }) => {
   const columns = useMemo(() => dataColumns, []);
   const data = useMemo(() => dataTable, []);
 
@@ -53,7 +53,7 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) =
               icon="heroicons-outline:plus"
               text={`Add ${title}`}
               className="btn-primary"
-              link="/staff/add"
+              link={`/${tableName}/add`}
             />
           </div>
         </div>
@@ -87,6 +87,7 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) =
                           </th>
                         );
                       })}
+                      <th className="table-th">Action</th>
                     </tr>
                   ))}
                 </thead>
@@ -108,6 +109,7 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) =
                               </td>
                             );
                           })}
+                          <ActionColumn table={tableName} id={row.values.id} />
                         </tr>
                       );
                     })

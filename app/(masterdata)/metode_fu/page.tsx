@@ -9,6 +9,7 @@ const MetodeFU = () => {
         title="Metode Follow Up"
         dataTable={metodeFollowUp}
         dataColumns={metodeFollowUpColumns}
+        tableName="metode_fu"
       />
     </div>
   );

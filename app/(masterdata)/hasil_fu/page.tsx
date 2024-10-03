@@ -6,7 +6,12 @@ import { hasilFU } from "@/constant/data";
 const HasilFU = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <MasterTable title="Hasil FU" dataTable={hasilFU} dataColumns={hasilFuColumns} />
+      <MasterTable
+        title="Hasil FU"
+        dataTable={hasilFU}
+        dataColumns={hasilFuColumns}
+        tableName="hasil_fu"
+      />
     </div>
   );
 };
