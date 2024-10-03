@@ -1,6 +1,6 @@
 import React from "react";
 import MasterTable from "@/components/partials/table/MasterTable";
-import keteranganFUColumns from "@/components/partials/table/KeteranganFUTableColumn";
+import keteranganFUColumns from "@/components/partials/table/columns/KeteranganFUTableColumn";
 import { keteranganFU } from "@/constant/data";
 
 const KeteranganFU = () => {

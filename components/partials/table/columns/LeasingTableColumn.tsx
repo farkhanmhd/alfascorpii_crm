@@ -1,6 +1,6 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
+import SimpleColumn from "../SimpleColumn";
 import Tooltip from "@/components/ui/Tooltip";
 import Icon from "@/components/ui/Icon";
 

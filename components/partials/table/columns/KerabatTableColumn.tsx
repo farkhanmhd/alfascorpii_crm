@@ -1,10 +1,10 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
-import ActionColumn from "./ActionColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
+import ActionColumn from "../ActionColumn";
 
-const statusRumahColumns = [
+const kerabatColumns = [
   {
     Header: "No",
     accessor: "id",
@@ -13,12 +13,13 @@ const statusRumahColumns = [
     },
   },
   {
-    Header: "Status Rumah",
-    accessor: "status_rumah",
+    Header: "Kerabat",
+    accessor: "kerabat",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
   },
+
   {
     Header: "Status",
     accessor: "status",
@@ -41,4 +42,4 @@ const statusRumahColumns = [
   },
 ];
 
-export default statusRumahColumns;
+export default kerabatColumns;

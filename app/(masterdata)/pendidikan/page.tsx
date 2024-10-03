@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import pendidikanColumns from "@/components/partials/table/PendidikanTableColumn";
+import pendidikanColumns from "@/components/partials/table/columns/PendidikanTableColumn";
 import { pendidikan } from "@/constant/data";
 
 const Pekerjaan = () => {

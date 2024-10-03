@@ -29,19 +29,15 @@ const Sidebar = () => {
   const [isSemiDark] = useSemiDark();
   // skin
   const [skin] = useSkin();
+
   return (
     <div className={isSemiDark ? "dark" : ""}>
       <div
-        className={`sidebar-wrapper bg-white dark:bg-slate-800     ${
-          collapsed ? "w-[72px] close_sidebar" : "w-[248px]"
-        }
-      ${menuHover ? "sidebar-hovered" : ""}
-      ${
-        skin === "bordered"
-          ? "border-r border-slate-200 dark:border-slate-700"
-          : "shadow-base"
-      }
-      `}
+        className={`sidebar-wrapper bg-white dark:bg-slate-800 ${
+          collapsed ? "close_sidebar w-[72px]" : "w-[248px]"
+        } ${menuHover ? "sidebar-hovered" : ""} ${
+          skin === "bordered" ? "border-r border-slate-200 dark:border-slate-700" : "shadow-base"
+        } `}
         onMouseEnter={() => {
           setMenuHover(true);
         }}
@@ -51,13 +47,13 @@ const Sidebar = () => {
       >
         <SidebarLogo menuHover={menuHover} />
         <div
-          className={`h-[60px]  absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none ${
-            scroll ? " opacity-100" : " opacity-0"
+          className={`nav-shadow pointer-events-none absolute top-[80px] z-[1] h-[60px] w-full transition-all duration-200 ${
+            scroll ? "opacity-100" : "opacity-0"
           }`}
         ></div>
 
         <SimpleBar
-          className="sidebar-menu px-4 h-[calc(100%-80px)]"
+          className="sidebar-menu h-[calc(100%-80px)] px-4"
           scrollableNodeProps={{ ref: scrollableNodeRef }}
         >
           <Navmenu menus={menuItems} />

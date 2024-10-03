@@ -13,33 +13,34 @@ const Submenu = ({ activeSubmenu, item, i, locationName }) => {
       setMultiMenu(j);
     }
   };
+
   return (
     <Collapse isOpened={activeSubmenu === i}>
-      <ul className="sub-menu  space-y-4  ">
+      <ul className="sub-menu space-y-4">
         {item.child?.map((subItem, j) => (
-          <li key={j} className="block pl-4 pr-1 first:pt-4  last:pb-4">
+          <li key={j} className="block pl-4 pr-1 first:pt-4 last:pb-4">
             {subItem?.multi_menu ? (
               <div>
                 <div
                   onClick={() => toggleMultiMenu(j)}
                   className={`${
                     activeMultiMenu
-                      ? " text-black dark:text-white font-medium"
+                      ? "text-black font-medium dark:text-white"
                       : "text-slate-600 dark:text-slate-300"
-                  } text-sm flex space-x-3 items-center transition-all duration-150 cursor-pointer`}
+                  } flex cursor-pointer items-center space-x-3 text-sm transition-all duration-150`}
                 >
                   <span
                     className={`${
                       activeMultiMenu
-                        ? " bg-slate-900 dark:bg-slate-300 ring-4 ring-opacity-[15%] ring-black-500 dark:ring-slate-300 dark:ring-opacity-20"
+                        ? "bg-slate-900 ring-4 ring-black-500 ring-opacity-[15%] dark:bg-slate-300 dark:ring-slate-300 dark:ring-opacity-20"
                         : ""
-                    } h-2 w-2 rounded-full border border-slate-600 dark:border-white inline-block flex-none `}
+                    } inline-block h-2 w-2 flex-none rounded-full border border-slate-600 dark:border-white`}
                   ></span>
                   <span className="flex-1">{subItem.childtitle}</span>
                   <span className="flex-none">
                     <span
                       className={`menu-arrow transform transition-all duration-300 ${
-                        activeMultiMenu === j ? " rotate-90" : ""
+                        activeMultiMenu === j ? "rotate-90" : ""
                       }`}
                     >
                       <Icon icon="ph:caret-right" />
@@ -54,13 +55,13 @@ const Submenu = ({ activeSubmenu, item, i, locationName }) => {
                 />
               </div>
             ) : (
-              <Link href={subItem.childlink}>
+              <Link href={`/${subItem.childlink}`}>
                 <span
                   className={`${
-                    locationName === subItem.childlink
-                      ? " text-black dark:text-white font-medium"
+                    locationName.startsWith(subItem.childlink)
+                      ? "text-black font-medium dark:text-white"
                       : "text-slate-600 dark:text-slate-300"
-                  } text-sm flex space-x-3 items-center transition-all duration-150`}
+                  } flex items-center space-x-3 text-sm transition-all duration-150`}
                 >
                   <Icon icon={subItem.childicon} width={18} />
                   <span className="flex-1">{subItem.childtitle}</span>

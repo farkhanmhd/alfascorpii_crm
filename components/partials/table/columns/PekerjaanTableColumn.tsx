@@ -1,10 +1,10 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
-import ActionColumn from "./ActionColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
+import ActionColumn from "../ActionColumn";
 
-const metodeFollowUpColumns = [
+const pekerjaanColumns = [
   {
     Header: "No",
     accessor: "id",
@@ -13,13 +13,19 @@ const metodeFollowUpColumns = [
     },
   },
   {
-    Header: "Metode",
-    accessor: "metode",
+    Header: "Pekerjaan",
+    accessor: "pekerjaan",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
   },
-
+  {
+    Header: "Kode",
+    accessor: "kode",
+    Cell: (row) => {
+      return <SimpleColumn value={row.cell.value} />;
+    },
+  },
   {
     Header: "Status",
     accessor: "status",
@@ -42,4 +48,4 @@ const metodeFollowUpColumns = [
   },
 ];
 
-export default metodeFollowUpColumns;
+export default pekerjaanColumns;

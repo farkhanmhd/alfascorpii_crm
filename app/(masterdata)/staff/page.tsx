@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import staffColumns from "@/components/partials/table/StaffTableColumn";
+import staffColumns from "@/components/partials/table/columns/StaffTableColumn";
 import { staff } from "@/constant/data";
 
 const Page = () => {

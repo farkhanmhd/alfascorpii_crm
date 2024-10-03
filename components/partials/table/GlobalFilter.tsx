@@ -10,7 +10,12 @@ const GlobalFilter = ({ filter, setFilter }) => {
   };
   return (
     <div>
-      <Textinput value={value || ""} onChange={onChange} placeholder="search..." />
+      <Textinput
+        className="h-[52px] sm:min-w-[300px]"
+        value={value || ""}
+        onChange={onChange}
+        placeholder="Search..."
+      />
     </div>
   );
 };

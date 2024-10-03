@@ -1,6 +1,6 @@
 import React from "react";
 import MasterTable from "@/components/partials/table/MasterTable";
-import kerabatColumns from "@/components/partials/table/KerabatTableColumn";
+import kerabatColumns from "@/components/partials/table/columns/KerabatTableColumn";
 import { kerabat } from "@/constant/data";
 
 const Kerabat = () => {

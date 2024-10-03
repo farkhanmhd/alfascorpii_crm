@@ -1,10 +1,10 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
-import ActionColumn from "./ActionColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
+import ActionColumn from "../ActionColumn";
 
-const kerabatColumns = [
+const pendidikanColumns = [
   {
     Header: "No",
     accessor: "id",
@@ -13,13 +13,19 @@ const kerabatColumns = [
     },
   },
   {
-    Header: "Kerabat",
-    accessor: "kerabat",
+    Header: "Pendidikan",
+    accessor: "pendidikan",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
   },
-
+  {
+    Header: "Kode",
+    accessor: "kode",
+    Cell: (row) => {
+      return <SimpleColumn value={row.cell.value} />;
+    },
+  },
   {
     Header: "Status",
     accessor: "status",
@@ -42,4 +48,4 @@ const kerabatColumns = [
   },
 ];
 
-export default kerabatColumns;
+export default pendidikanColumns;

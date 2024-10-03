@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import hobiColumns from "@/components/partials/table/HobiTableColumn";
+import hobiColumns from "@/components/partials/table/columns/HobiTableColumn";
 import { hobi } from "@/constant/data";
 
 const Pekerjaan = () => {

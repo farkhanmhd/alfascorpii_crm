@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useMemo } from "react";
+import Link from "next/link";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import { useTable, useRowSelect, useSortBy, useGlobalFilter, usePagination } from "react-table";
 import GlobalFilter from "./GlobalFilter";
+import Button from "@/components/ui/Button";
 
 const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) => {
   const columns = useMemo(() => dataColumns, []);
@@ -44,13 +46,15 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns }) =
     <>
       <Card>
         <div className="mb-6 items-center justify-between md:flex">
-          <h4 className="card-title">{title}</h4>
-          <div className="flex justify-between space-x-4">
+          <h4 className="card-title mb-4 md:mb-0">{title}</h4>
+          <div className="flex flex-col justify-between gap-4 md:flex-row">
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-            <button className="flex items-center space-x-2 rounded-md bg-primary-500 px-4 py-2 text-sm">
-              <Icon icon="heroicons:plus-16-solid" />
-              <span className="hidden sm:inline">Add {title}</span>
-            </button>
+            <Button
+              icon="heroicons-outline:plus"
+              text={`Add ${title}`}
+              className="btn-primary"
+              link="/staff/add"
+            />
           </div>
         </div>
         <div className="-mx-6 overflow-x-auto">

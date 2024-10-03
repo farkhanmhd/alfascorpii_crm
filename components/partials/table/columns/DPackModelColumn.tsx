@@ -1,7 +1,7 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
 
 const dPackModelColumn = [
   {

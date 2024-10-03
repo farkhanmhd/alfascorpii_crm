@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import metodeFollowUpColumns from "@/components/partials/table/MetodeFollowUpColumn";
+import metodeFollowUpColumns from "@/components/partials/table/columns/MetodeFollowUpColumn";
 import { metodeFollowUp } from "@/constant/data";
 
 const MetodeFU = () => {

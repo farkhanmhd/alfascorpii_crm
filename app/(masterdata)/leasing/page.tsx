@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import leasingColumn from "@/components/partials/table/LeasingTableColumn";
+import leasingColumn from "@/components/partials/table/columns/LeasingTableColumn";
 import { leasing } from "@/constant/data";
 
 const Leasing = () => {

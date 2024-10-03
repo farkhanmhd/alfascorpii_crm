@@ -1,10 +1,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Collapse } from "react-collapse";
 import Icon from "@/components/ui/Icon";
-// import { toggleActiveChat } from "@/components/partials/app/chat/store";
-// import { useDispatch } from "react-redux";
 import useMobileMenu from "@/hooks/useMobileMenu";
 import Submenu from "./Submenu";
 const Navmenu = ({ menus }) => {
@@ -23,7 +20,6 @@ const Navmenu = ({ menus }) => {
   const locationName = location.replace("/", "");
 
   const [mobileMenu, setMobileMenu] = useMobileMenu();
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     let submenuIndex = null;
@@ -32,9 +28,7 @@ const Navmenu = ({ menus }) => {
       if (item.link === locationName) {
         submenuIndex = null;
       } else {
-        const ciIndex = item.child.findIndex(
-          (ci) => ci.childlink === locationName
-        );
+        const ciIndex = item.child.findIndex((ci) => locationName.startsWith(ci.childlink));
         if (ciIndex !== -1) {
           submenuIndex = i;
         }
@@ -42,7 +36,6 @@ const Navmenu = ({ menus }) => {
     });
 
     setActiveSubmenu(submenuIndex);
-    // dispatch(toggleActiveChat(false));
     if (mobileMenu) {
       setMobileMenu(false);
     }
@@ -54,10 +47,7 @@ const Navmenu = ({ menus }) => {
         {menus.map((item, i) => (
           <li
             key={i}
-            className={` single-sidebar-menu 
-              ${item.child ? "item-has-children" : ""}
-              ${activeSubmenu === i ? "open" : ""}
-              ${locationName === item.link ? "menu-item-active" : ""}`}
+            className={`single-sidebar-menu ${item.child ? "item-has-children" : ""} ${activeSubmenu === i ? "open" : ""} ${locationName === item.link ? "menu-item-active" : ""}`}
           >
             {/* single menu with no childred*/}
             {!item.child && !item.isHeadr && (
@@ -70,20 +60,16 @@ const Navmenu = ({ menus }) => {
               </Link>
             )}
             {/* only for menulabel */}
-            {item.isHeadr && !item.child && (
-              <div className="menulabel">{item.title}</div>
-            )}
+            {item.isHeadr && !item.child && <div className="menulabel">{item.title}</div>}
             {/*    !!sub menu parent   */}
             {item.child && (
               <div
                 className={`menu-link ${
-                  activeSubmenu === i
-                    ? "parent_active not-collapsed"
-                    : "collapsed"
+                  activeSubmenu === i ? "parent_active not-collapsed" : "collapsed"
                 }`}
                 onClick={() => toggleSubmenu(i)}
               >
-                <div className="flex-1 flex items-start">
+                <div className="flex flex-1 items-start">
                   <span className="menu-icon">
                     <Icon icon={item.icon} />
                   </span>
@@ -92,7 +78,7 @@ const Navmenu = ({ menus }) => {
                 <div className="flex-0">
                   <div
                     className={`menu-arrow transform transition-all duration-300 ${
-                      activeSubmenu === i ? " rotate-90" : ""
+                      activeSubmenu === i ? "rotate-90" : ""
                     }`}
                   >
                     <Icon icon="heroicons-outline:chevron-right" />
@@ -101,12 +87,7 @@ const Navmenu = ({ menus }) => {
               </div>
             )}
 
-            <Submenu
-              activeSubmenu={activeSubmenu}
-              item={item}
-              i={i}
-              locationName={locationName}
-            />
+            <Submenu activeSubmenu={activeSubmenu} item={item} i={i} locationName={locationName} />
           </li>
         ))}
       </ul>

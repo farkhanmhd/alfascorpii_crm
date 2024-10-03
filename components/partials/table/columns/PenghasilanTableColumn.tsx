@@ -1,10 +1,11 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
-import ActionColumn from "./ActionColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
+import ActionColumn from "../ActionColumn";
+import { formatToRupiah } from "@/utils/stringFormatting";
 
-const hasilFuColumns = [
+const penghasilanColumns = [
   {
     Header: "No",
     accessor: "id",
@@ -13,22 +14,29 @@ const hasilFuColumns = [
     },
   },
   {
-    Header: "Minat",
-    accessor: "minat",
+    Header: "Batas Bawah",
+    accessor: "batas_bawah",
+    Cell: (row) => {
+      return <SimpleColumn value={formatToRupiah(row.cell.value)} />;
+    },
+  },
+  {
+    Header: "Batas Atas",
+    accessor: "batas_atas",
+    Cell: (row) => {
+      return <SimpleColumn value={formatToRupiah(row.cell.value)} />;
+    },
+  },
+  {
+    Header: "Detail",
+    accessor: "detail",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
   },
   {
-    Header: "Warna",
-    accessor: "warna",
-    Cell: (row) => {
-      return <SimpleColumn value={row.cell.value} />;
-    },
-  },
-  {
-    Header: "Hari",
-    accessor: "hari",
+    Header: "Kode",
+    accessor: "kode",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
@@ -55,4 +63,4 @@ const hasilFuColumns = [
   },
 ];
 
-export default hasilFuColumns;
+export default penghasilanColumns;

@@ -1,6 +1,6 @@
 import React from "react";
 import MasterTable from "@/components/partials/table/MasterTable";
-import hasilFuColumns from "@/components/partials/table/HasilFUTableColumn";
+import hasilFuColumns from "@/components/partials/table/columns/HasilFUTableColumn";
 import { hasilFU } from "@/constant/data";
 
 const HasilFU = () => {

@@ -1,9 +1,10 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
+import ActionColumn from "../ActionColumn";
 
-const dealerColumns = [
+const metodeFollowUpColumns = [
   {
     Header: "No",
     accessor: "id",
@@ -12,15 +13,8 @@ const dealerColumns = [
     },
   },
   {
-    Header: "Kode",
-    accessor: "kode",
-    Cell: (row) => {
-      return <SimpleColumn value={row.cell.value} />;
-    },
-  },
-  {
-    Header: "Dealer",
-    accessor: "dealer",
+    Header: "Metode",
+    accessor: "metode",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
@@ -39,6 +33,13 @@ const dealerColumns = [
       );
     },
   },
+  {
+    Header: "Action",
+    accessor: "action",
+    Cell: () => {
+      return <ActionColumn />;
+    },
+  },
 ];
 
-export default dealerColumns;
+export default metodeFollowUpColumns;

@@ -1,20 +1,12 @@
 "use client";
 
-import SimpleColumn from "./SimpleColumn";
-import StatusColumn from "./StatusColumn";
-import ActionColumn from "./ActionColumn";
+import SimpleColumn from "../SimpleColumn";
+import StatusColumn from "../StatusColumn";
 
-const pekerjaanColumns = [
+const dealerColumns = [
   {
     Header: "No",
     accessor: "id",
-    Cell: (row) => {
-      return <SimpleColumn value={row.cell.value} />;
-    },
-  },
-  {
-    Header: "Pekerjaan",
-    accessor: "pekerjaan",
     Cell: (row) => {
       return <SimpleColumn value={row.cell.value} />;
     },
@@ -26,6 +18,14 @@ const pekerjaanColumns = [
       return <SimpleColumn value={row.cell.value} />;
     },
   },
+  {
+    Header: "Dealer",
+    accessor: "dealer",
+    Cell: (row) => {
+      return <SimpleColumn value={row.cell.value} />;
+    },
+  },
+
   {
     Header: "Status",
     accessor: "status",
@@ -39,13 +39,6 @@ const pekerjaanColumns = [
       );
     },
   },
-  {
-    Header: "Action",
-    accessor: "action",
-    Cell: () => {
-      return <ActionColumn />;
-    },
-  },
 ];
 
-export default pekerjaanColumns;
+export default dealerColumns;

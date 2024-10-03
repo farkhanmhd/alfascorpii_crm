@@ -1,5 +1,5 @@
 import MasterTable from "@/components/partials/table/MasterTable";
-import dPackModelColumn from "@/components/partials/table/DPackModelColumn";
+import dPackModelColumn from "@/components/partials/table/columns/DPackModelColumn";
 
 const Page = () => {
   return (

@@ -14,14 +14,15 @@ const Breadcrumbs = () => {
   const [groupTitle, setGroupTitle] = useState("");
   const [groupIcon, setGroupIcon] = useState("");
   const [locationName, setLocationName] = useState(locationNameFromPath); // Set default location name
+  const [crumbs, setCrumbs] = useState(locationNameFromPath.split("/"));
 
   useEffect(() => {
     // Find the current parent menu item based on the path
-    const currentMenuItem = menuItems.find((item) => item.link === locationNameFromPath);
+    const currentMenuItem = menuItems.find((item) => locationNameFromPath.startsWith(item.link));
 
     // Find the current child menu item
     const currentChild = menuItems.find((item) =>
-      item.child?.find((child) => child.childlink === locationNameFromPath),
+      item.child?.find((child) => locationNameFromPath.startsWith(child.childlink)),
     );
 
     // If it's a parent item, set isHide and locationName based on the parent
@@ -31,8 +32,8 @@ const Breadcrumbs = () => {
     }
     // If it's a child item, set isHide, groupTitle, groupIcon, and locationName based on the child
     else if (currentChild) {
-      const matchedChild = currentChild.child.find(
-        (child) => child.childlink === locationNameFromPath,
+      const matchedChild = currentChild.child.find((child) =>
+        locationNameFromPath.startsWith(child.childlink),
       );
       setIsHide(currentChild.isHide || false);
       setGroupTitle(currentChild.title);
@@ -65,7 +66,21 @@ const Breadcrumbs = () => {
                 </span>
               </li>
             )}
-            <li className="capitalize text-slate-500 dark:text-slate-400">{locationName}</li>
+            {/* <li className="capitalize text-slate-500 dark:text-slate-400">{locationName}</li> */}
+            {crumbs.map((crumb, index) =>
+              index !== crumbs.length - 1 ? (
+                <li key={index} className="capitalize text-primary-500">
+                  <Link href={`/${crumb}`}>{crumb}</Link>
+                  <span className="breadcrumbs-icon rtl:rotate-180 rtl:transform">
+                    <Icon icon="heroicons:chevron-right" />
+                  </span>
+                </li>
+              ) : (
+                <li key={index} className="capitalize text-slate-500 dark:text-slate-400">
+                  {crumb}
+                </li>
+              ),
+            )}
           </ul>
         </div>
       ) : null}
