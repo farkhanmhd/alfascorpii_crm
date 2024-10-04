@@ -22,7 +22,7 @@ const Page = () => {
       <form className="flex flex-col gap-y-4">
         <div>
           <div className="mb-8">
-            <p className="mb-2">Status FU</p>
+            <p className="mb-2 text-sm font-medium">Status FU</p>
             <div className="flex gap-x-8">
               <Radio
                 id="contacted"

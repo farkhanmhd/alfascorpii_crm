@@ -25,6 +25,16 @@ const Page = () => {
     <Card title="Edit Status Rumah">
       <form className="flex flex-col gap-y-8">
         <div>
+          <Textinput
+            id="status_rumah"
+            label="Status Rumah"
+            placeholder="Milik Sendiri"
+            register={register}
+            className="mb-4 h-[52px]"
+            defaultValue={selectedStatusRumah?.status_rumah}
+          />
+        </div>
+        <div>
           <p className="mb-2">Status</p>
           <div className="flex gap-x-8">
             <Radio
@@ -46,16 +56,6 @@ const Page = () => {
               checked={selectedStatus === "HIDE"}
             />
           </div>
-        </div>
-        <div>
-          <Textinput
-            id="status_rumah"
-            label="Status Rumah"
-            placeholder="Milik Sendiri"
-            register={register}
-            className="mb-4 h-[52px]"
-            defaultValue={selectedStatusRumah?.status_rumah}
-          />
         </div>
         <div className="flex flex-col justify-between gap-x-4 gap-y-16 sm:flex-row">
           <Button

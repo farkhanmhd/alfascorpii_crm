@@ -14,32 +14,34 @@ const Page = () => {
   return (
     <Card title="Tambah Hasil Follow Up">
       <form className="flex flex-col gap-y-8">
-        <div>
-          <Textinput
-            id="minat"
-            label="Minat"
-            placeholder="INTERESTED"
-            register={register}
-            className="h-[52px]"
-          />
-        </div>
-        <div>
-          <Textinput
-            id="warna"
-            label="Warna"
-            placeholder="Gold"
-            register={register}
-            className="h-[52px]"
-          />
-        </div>
-        <div>
-          <Textinput
-            id="hari"
-            label="Hari"
-            placeholder="8"
-            register={register}
-            className="h-[52px]"
-          />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <Textinput
+              id="minat"
+              label="Minat"
+              placeholder="INTERESTED"
+              register={register}
+              className="h-[52px]"
+            />
+          </div>
+          <div>
+            <Textinput
+              id="warna"
+              label="Warna"
+              placeholder="Gold"
+              register={register}
+              className="h-[52px]"
+            />
+          </div>
+          <div>
+            <Textinput
+              id="hari"
+              label="Hari"
+              placeholder="8"
+              register={register}
+              className="h-[52px]"
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-between gap-x-4 gap-y-16 sm:flex-row">
           <Button

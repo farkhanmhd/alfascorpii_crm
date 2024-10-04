@@ -48,19 +48,19 @@ const Select = ({
   defaultValue,
   size,
   ...rest
-}: ISelect) => {
+}: any) => {
   options = options || Array(3).fill("option");
   return (
     <div
-      className={`fromGroup  ${error ? "has-error" : ""}  ${
+      className={`fromGroup ${error ? "has-error" : ""} ${
         horizontal ? "flex" : ""
-      }  ${validate ? "is-valid" : ""} `}
+      } ${validate ? "is-valid" : ""} `}
     >
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 mr-6 md:w-[100px] w-[60px] break-words" : ""
+          className={`block capitalize ${classLabel} ${
+            horizontal ? "flex-0 mr-6 w-[60px] break-words md:w-[100px]" : ""
           }`}
         >
           {label}
@@ -73,8 +73,8 @@ const Select = ({
             {...register(name)}
             {...rest}
             className={`${
-              error ? " has-error" : " "
-            } form-control py-2  appearance-none ${className}  `}
+              error ? "has-error" : " "
+            } form-control appearance-none py-2 ${className} `}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -105,8 +105,8 @@ const Select = ({
           <select
             onChange={onChange}
             className={`${
-              error ? " has-error" : " "
-            } form-control py-2 appearance-none ${className}  `}
+              error ? "has-error" : " "
+            } form-control appearance-none py-2 ${className} `}
             disabled={disabled}
             id={id}
             value={value}
@@ -133,8 +133,8 @@ const Select = ({
         )}
 
         {/* icon */}
-        <div className="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
-          <span className=" relative -right-2 inline-block text-slate-900 dark:text-slate-300 pointer-events-none">
+        <div className="absolute top-1/2 flex -translate-y-1/2 space-x-1 text-xl ltr:right-[14px] rtl:left-[14px] rtl:space-x-reverse">
+          <span className="pointer-events-none relative -right-2 inline-block text-slate-900 dark:text-slate-300">
             <Icon icon="heroicons:chevron-down" />
           </span>
           {error && (
@@ -152,10 +152,10 @@ const Select = ({
       {/* error and success message*/}
       {error && (
         <div
-          className={` mt-2 ${
+          className={`mt-2 ${
             msgTooltip
-              ? " inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-danger-500 block text-sm"
+              ? "inline-block rounded bg-danger-500 px-2 py-1 text-[10px] text-white"
+              : "block text-sm text-danger-500"
           }`}
         >
           {error.message}
@@ -164,10 +164,10 @@ const Select = ({
       {/* validated and success message*/}
       {validate && (
         <div
-          className={` mt-2 ${
+          className={`mt-2 ${
             msgTooltip
-              ? " inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-success-500 block text-sm"
+              ? "inline-block rounded bg-success-500 px-2 py-1 text-[10px] text-white"
+              : "block text-sm text-success-500"
           }`}
         >
           {validate}

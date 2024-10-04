@@ -14,23 +14,25 @@ const Page = () => {
   return (
     <Card title="Tambah Pendidikan">
       <form className="flex flex-col gap-y-8">
-        <div>
-          <Textinput
-            id="pendidikan"
-            label="Pendidikan"
-            placeholder="Diploma"
-            register={register}
-            className="h-[52px]"
-          />
-        </div>
-        <div>
-          <Textinput
-            id="kode"
-            label="Kode"
-            placeholder="D"
-            register={register}
-            className="h-[52px]"
-          />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <Textinput
+              id="pendidikan"
+              label="Pendidikan"
+              placeholder="Diploma"
+              register={register}
+              className="h-[52px]"
+            />
+          </div>
+          <div>
+            <Textinput
+              id="kode"
+              label="Kode"
+              placeholder="D"
+              register={register}
+              className="h-[52px]"
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-between gap-x-4 gap-y-16 sm:flex-row">
           <Button

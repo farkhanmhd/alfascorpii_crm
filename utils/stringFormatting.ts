@@ -9,3 +9,8 @@ export const formatToRupiah = (value) => {
 export const splitAndJoinUnderscore = (str) => {
   return str.split("_").join(" ");
 };
+
+export const dateObject = (dateString) => {
+  const [day, month, year] = dateString.split("-").map(Number);
+  return new Date(year, month - 1, day); // Month is 0-based
+};

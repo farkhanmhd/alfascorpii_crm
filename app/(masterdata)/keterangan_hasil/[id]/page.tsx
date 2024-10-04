@@ -30,7 +30,7 @@ const Page = () => {
       <form className="flex flex-col gap-y-8">
         <div>
           <div className="mb-8">
-            <p className="mb-2">Status FU</p>
+            <p className="mb-2 text-sm font-medium">Status FU</p>
             <div className="flex gap-x-8">
               <Radio
                 id="contacted"
@@ -53,7 +53,7 @@ const Page = () => {
             </div>
           </div>
 
-          <p className="mb-2">Tampil</p>
+          <p className="mb-2 text-sm font-medium">Tampil</p>
           <div className="mb-8 flex gap-x-8">
             <Radio
               id="show"

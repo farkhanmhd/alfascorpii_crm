@@ -35,7 +35,7 @@ const Page = () => {
       <form className="flex flex-col gap-y-8">
         <div>
           <div className="mb-8">
-            <p className="mb-2">Status</p>
+            <p className="mb-2 text-sm font-medium">Status</p>
             <div className="flex gap-x-8">
               <Radio
                 id="contacted"
@@ -58,7 +58,7 @@ const Page = () => {
             </div>
           </div>
           <div className="mb-8">
-            <p className="mb-2">Kategori Hasil</p>
+            <p className="mb-2 text-sm font-medium">Kategori Hasil</p>
             <div className="flex gap-x-8">
               <Radio
                 id="not_contacted_kategori"
@@ -97,7 +97,7 @@ const Page = () => {
             className="mb-8 h-[52px]"
             defaultValue={selectedKeterangan.keterangan}
           />
-          <p className="mb-2">Tampil</p>
+          <p className="mb-2 text-sm font-medium">Tampil</p>
           <div className="flex gap-x-8">
             <Radio
               id="show"
