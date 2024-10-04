@@ -27,7 +27,7 @@ const Page = () => {
   };
 
   return (
-    <Card title="Edit Pendidikan">
+    <Card title="Edit Pengeluaran">
       <form className="flex flex-col gap-y-8">
         <div className="flex flex-col gap-y-4">
           <p>Status</p>
