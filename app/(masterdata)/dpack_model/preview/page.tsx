@@ -7,7 +7,7 @@ const Page = () => {
     <div className="flex flex-col gap-y-4">
       <DPackModelTable
         title="DPACK Model"
-        dataTable={[]}
+        dataTable={dpackModel}
         dataColumns={dPackModelColumn}
         tableName="dpack_model"
       />

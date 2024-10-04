@@ -12,51 +12,39 @@ const Fileinput = ({
   selectedFile,
   badge,
   selectedFiles,
-}) => {
+  ...rest
+}: any) => {
   return (
     <div>
       <div className="filegroup">
         <label>
           <input
+            {...rest}
             type="file"
             onChange={onChange}
-            className="bg-red-400 w-full hidden"
+            className="hidden w-full bg-red-400"
             name={name}
             id={id}
             multiple={multiple}
             placeholder={placeholder}
           />
-          <div
-            className={`w-full h-[40px] file-control flex items-center ${className}`}
-          >
+          <div className={`file-control flex h-[40px] w-full items-center ${className}`}>
             {!multiple && (
               <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
                 {selectedFile && (
-                  <span
-                    className={
-                      badge ? " badge-title" : "text-slate-900 dark:text-white"
-                    }
-                  >
+                  <span className={badge ? "badge-title" : "text-slate-900 dark:text-white"}>
                     {selectedFile.name}
                   </span>
                 )}
-                {!selectedFile && (
-                  <span className="text-slate-400">{placeholder}</span>
-                )}
+                {!selectedFile && <span className="text-slate-400">{placeholder}</span>}
               </span>
             )}
 
             {multiple && (
               <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
                 {selectedFiles.length > 0 && (
-                  <span
-                    className={
-                      badge ? " badge-title" : "text-slate-900 dark:text-white"
-                    }
-                  >
-                    {selectedFiles.length > 0
-                      ? selectedFiles.length + " files selected"
-                      : ""}
+                  <span className={badge ? "badge-title" : "text-slate-900 dark:text-white"}>
+                    {selectedFiles.length > 0 ? selectedFiles.length + " files selected" : ""}
                   </span>
                 )}
                 {selectedFiles.length === 0 && (
@@ -64,15 +52,15 @@ const Fileinput = ({
                 )}
               </span>
             )}
-            <span className="file-name flex-none cursor-pointer border-l px-4 border-slate-200 dark:border-slate-700 h-full inline-flex items-center bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 text-base rounded-tr rounded-br font-normal">
+            <span className="file-name inline-flex h-full flex-none cursor-pointer items-center rounded-br rounded-tr border-l border-slate-200 bg-slate-100 px-4 text-base font-normal text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
               {label}
             </span>
           </div>
           {!multiple && preview && selectedFile && (
-            <div className="w-[200px] h-[200px] mx-auto mt-6  ">
+            <div className="mx-auto mt-6 h-[200px] w-[200px]">
               <img
                 src={selectedFile ? URL.createObjectURL(selectedFile) : ""}
-                className="w-full  h-full block rounded object-contain border p-2  border-slate-200"
+                className="block h-full w-full rounded border border-slate-200 object-contain p-2"
                 alt={selectedFile?.name}
               />
             </div>
@@ -81,12 +69,12 @@ const Fileinput = ({
             <div className="flex flex-wrap space-x-5 rtl:space-x-reverse">
               {selectedFiles.map((file, index) => (
                 <div
-                  className="xl:w-1/5 md:w-1/3 w-1/2 rounded mt-6 border p-2  border-slate-200"
+                  className="mt-6 w-1/2 rounded border border-slate-200 p-2 md:w-1/3 xl:w-1/5"
                   key={index}
                 >
                   <img
                     src={file ? URL.createObjectURL(file) : ""}
-                    className="object-cover w-full h-full rounded"
+                    className="h-full w-full rounded object-cover"
                     alt={file?.name}
                   />
                 </div>

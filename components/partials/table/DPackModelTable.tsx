@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Card from "@/components/ui/Card";
 import Icon from "@/components/ui/Icon";
 import { useTable, useRowSelect, useSortBy, useGlobalFilter, usePagination } from "react-table";
 import GlobalFilter from "./GlobalFilter";
 import Button from "@/components/ui/Button";
-import ActionColumn from "./ActionColumn";
+import Fileinput from "@/components/ui/Fileinput";
+import DropZone from "../froms/DropZone";
 
-const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns, tableName }) => {
+const DPackModelTable = ({ title = "Advanced Table Two", dataTable, dataColumns, tableName }) => {
   const columns = useMemo(() => dataColumns, []);
   const data = useMemo(() => dataTable, []);
 
@@ -42,92 +43,117 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns, tab
 
   const { globalFilter, pageIndex, pageSize } = state;
 
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange2 = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
   return (
     <>
       <Card>
         <div className="mb-6 items-center justify-between md:flex">
           <h4 className="card-title mb-4 md:mb-0">{title}</h4>
-          <div className="flex flex-col justify-between gap-4 md:flex-row">
-            <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        </div>
+        {!data.length ? (
+          <div className="flex flex-col gap-y-8">
+            <DropZone />
             <Button
-              icon="heroicons-outline:plus"
-              text={`Add ${title}`}
-              className="btn-primary"
-              link={`/${tableName}/add`}
+              icon="heroicons-outline:cloud-arrow-up"
+              text="Upload"
+              className="btn-primary self-end"
+              link={`/${tableName}/preview`}
             />
           </div>
-        </div>
-        <div className="-mx-6 overflow-x-auto">
-          <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden">
-              <table
-                className="min-w-full table-fixed divide-y divide-slate-100 dark:divide-slate-700"
-                {...getTableProps}
-              >
-                <thead className="bg-slate-200 dark:bg-slate-700">
-                  {headerGroups.map((headerGroup: any, i: number) => (
-                    <tr key={i}>
-                      {headerGroup.headers.map((column: any) => {
-                        const { key, ...restColumn } = column.getHeaderProps(
-                          column.getSortByToggleProps(),
-                        );
-                        return (
-                          <th key={key} {...restColumn} className="table-th cursor-pointer">
-                            <div className="flex items-center space-x-2">
-                              <span>{column.render("Header")}</span>
-                              <span>
-                                {column.isSorted &&
-                                  (column.isSortedDesc ? (
-                                    <Icon icon="heroicons:chevron-down-solid" />
-                                  ) : (
-                                    <Icon icon="heroicons:chevron-up-solid" />
-                                  ))}
-                              </span>
-                            </div>
-                          </th>
-                        );
-                      })}
-                      <th className="table-th">Action</th>
-                    </tr>
-                  ))}
-                </thead>
-                <tbody
-                  className="divide-y divide-slate-100 bg-white dark:divide-slate-700 dark:bg-slate-800"
-                  {...getTableBodyProps}
+        ) : (
+          <div className="-mx-6 overflow-x-auto">
+            <div className="mb-8 flex flex-col justify-between gap-4 gap-y-8 px-6 md:flex-row">
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Fileinput
+                  name="basic"
+                  selectedFile={selectedFile}
+                  onChange={handleFileChange2}
+                  className="h-[52px] lg:w-[320px]"
+                  accept=".xlsx, .xls"
+                />
+                <Button
+                  icon="heroicons-outline:cloud-arrow-up"
+                  text="Upload"
+                  className="btn-primary"
+                  link={`/${tableName}preview`}
+                />
+              </div>
+              <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+            </div>
+            <div className="inline-block min-w-full align-middle">
+              <div className="overflow-hidden">
+                <table
+                  className="min-w-full table-fixed divide-y divide-slate-100 dark:divide-slate-700"
+                  {...getTableProps}
                 >
-                  {page.length > 0 ? (
-                    page.map((row) => {
-                      prepareRow(row);
-                      const { key, ...restRowProps } = row.getRowProps();
-                      return (
-                        <tr key={key} {...restRowProps}>
-                          {row.cells.map((cell: any) => {
-                            const { key, ...restCellProps } = cell.getCellProps();
-                            return (
-                              <td key={key} {...restCellProps} className="table-td">
-                                {cell.render("Cell")}
-                              </td>
-                            );
-                          })}
-                          <ActionColumn table={tableName} id={row.values.id} />
-                        </tr>
-                      );
-                    })
-                  ) : (
-                    <tr>
-                      <td
-                        colSpan={headerGroups[0].headers.length + 1}
-                        className="table-td text-center"
-                      >
-                        No Data
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+                  <thead className="bg-slate-200 dark:bg-slate-700">
+                    {headerGroups.map((headerGroup: any, i: number) => (
+                      <tr key={i}>
+                        {headerGroup.headers.map((column: any) => {
+                          const { key, ...restColumn } = column.getHeaderProps(
+                            column.getSortByToggleProps(),
+                          );
+                          return (
+                            <th key={key} {...restColumn} className="table-th cursor-pointer">
+                              <div className="flex items-center space-x-2">
+                                <span>{column.render("Header")}</span>
+                                <span>
+                                  {column.isSorted &&
+                                    (column.isSortedDesc ? (
+                                      <Icon icon="heroicons:chevron-down-solid" />
+                                    ) : (
+                                      <Icon icon="heroicons:chevron-up-solid" />
+                                    ))}
+                                </span>
+                              </div>
+                            </th>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </thead>
+                  <tbody
+                    className="divide-y divide-slate-100 bg-white dark:divide-slate-700 dark:bg-slate-800"
+                    {...getTableBodyProps}
+                  >
+                    {page.length > 0 ? (
+                      page.map((row) => {
+                        prepareRow(row);
+                        const { key, ...restRowProps } = row.getRowProps();
+                        return (
+                          <tr key={key} {...restRowProps}>
+                            {row.cells.map((cell: any) => {
+                              const { key, ...restCellProps } = cell.getCellProps();
+                              return (
+                                <td key={key} {...restCellProps} className="table-td">
+                                  {cell.render("Cell")}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      <tr>
+                        <td
+                          colSpan={headerGroups[0].headers.length}
+                          className="table-td text-center"
+                        >
+                          No Data
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
+        )}
         {data.length > 10 && (
           <div className="mt-6 items-center justify-between space-y-5 md:flex md:space-y-0">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -210,4 +236,4 @@ const MasterTable = ({ title = "Advanced Table Two", dataTable, dataColumns, tab
   );
 };
 
-export default MasterTable;
+export default DPackModelTable;
