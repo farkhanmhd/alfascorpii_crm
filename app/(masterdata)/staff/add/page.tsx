@@ -21,16 +21,18 @@ const Page = () => {
   return (
     <Card title="Add new Staff">
       <form className="flex flex-col gap-y-8">
-        {inputFields.map((field) => (
-          <Textinput
-            key={field.id} // Assign key based on the id
-            id={field.id}
-            label={field.label}
-            placeholder={field.placeholder}
-            register={register}
-            className="h-[52px]"
-          />
-        ))}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {inputFields.map((field) => (
+            <Textinput
+              key={field.id} // Assign key based on the id
+              id={field.id}
+              label={field.label}
+              placeholder={field.placeholder}
+              register={register}
+              className="h-[52px]"
+            />
+          ))}
+        </div>
         <div className="flex flex-col justify-between gap-x-4 gap-y-16 sm:flex-row">
           <Button
             className="btn-outline-danger order-2 w-full sm:order-1 sm:w-min"
