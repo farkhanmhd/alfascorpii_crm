@@ -6,7 +6,7 @@ const Pekerjaan = () => {
   return (
     <div className="flex flex-col gap-y-4">
       <MasterTable
-        title="Pengeluaran"
+        title="Status Rumah"
         dataTable={statusRumah}
         dataColumns={statusRumahColumns}
         tableName="status_rumah"
