@@ -80,9 +80,10 @@ const Page = () => {
             </label>
             <Flatpickr
               value={picker}
-              id="hf-picker"
+              id="default-picker"
               className="form-control py-4"
               onChange={(date) => setPicker(date)}
+              disabled={false}
               options={{
                 dateFormat: "j F, Y",
               }}

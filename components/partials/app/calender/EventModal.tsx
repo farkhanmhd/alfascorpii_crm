@@ -5,14 +5,14 @@ import { useForm, Controller } from "react-hook-form";
 import Select from "@/components/ui/Select";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useSelector, useDispatch } from "react-redux";
-import { dateClick } from "./store";
+// import { useSelector, useDispatch } from "react-redux";
+// import { dateClick } from "./store";
 import Flatpickr from "react-flatpickr";
 import FormGroup from "@/components/ui/FormGroup";
 
 const EventModal = ({ activeModal, onClose, selectedEvent }) => {
-  const { categories } = useSelector((state: any) => state.calendar);
-  const dispatch = useDispatch();
+  // const { categories } = useSelector((state: any) => state.calendar);
+  // const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -50,20 +50,15 @@ const EventModal = ({ activeModal, onClose, selectedEvent }) => {
   });
 
   const onSubmit = (data) => {
-    dispatch(dateClick({ data, selectedEvent, startDate, endDate }));
+    // dispatch(dateClick({ data, selectedEvent, startDate, endDate }));
 
     onClose();
     reset();
   };
   return (
     <div>
-      <Modal
-        title="Event"
-        className="btn-outline-dark"
-        activeModal={activeModal}
-        onClose={onClose}
-      >
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
+      <Modal title="Event" className="btn-outline-dark" activeModal={activeModal} onClose={onClose}>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <Textinput
             name="title"
             label="Event Name"
@@ -72,11 +67,7 @@ const EventModal = ({ activeModal, onClose, selectedEvent }) => {
             register={register}
             error={errors.title}
           />
-          <FormGroup
-            label="Start Date"
-            id="default-picker"
-            error={errors.startDate}
-          >
+          <FormGroup label="Start Date" id="default-picker" error={errors.startDate}>
             <Controller
               name="startDate"
               control={control}
@@ -96,11 +87,7 @@ const EventModal = ({ activeModal, onClose, selectedEvent }) => {
               )}
             />
           </FormGroup>
-          <FormGroup
-            label="End Date"
-            id="default-picker2"
-            error={errors.endDate}
-          >
+          <FormGroup label="End Date" id="default-picker2" error={errors.endDate}>
             <Controller
               name="endDate"
               control={control}
@@ -123,13 +110,13 @@ const EventModal = ({ activeModal, onClose, selectedEvent }) => {
 
           <Select
             label="Basic Select"
-            options={categories}
+            // options={categories}
             register={register}
             error={errors.cata}
             name="cata"
           />
           <div className="ltr:text-right rtl:text-left">
-            <button className="btn btn-dark  text-center">Submit</button>
+            <button className="btn btn-dark text-center">Submit</button>
           </div>
         </form>
       </Modal>

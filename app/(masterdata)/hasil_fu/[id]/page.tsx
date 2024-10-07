@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import Card from "@/components/ui/Card";
 import Textinput from "@/components/ui/Textinput";
 import Radio from "@/components/ui/Radio";
 import Button from "@/components/ui/Button";
+import { hasilFU } from "@/constant/data";
 
 const Page = () => {
   const router = useRouter();
+  const { id } = useParams();
   const { register } = useForm();
+  const selectedHasilFU = hasilFU.find((item) => item.id === Number(id));
   const [selectedStatus, setSelectedStatus] = useState("SHOW");
 
   const handleStatusChange = (e) => {
@@ -53,6 +56,7 @@ const Page = () => {
               placeholder="INTERESTED"
               register={register}
               className="h-[52px]"
+              defaultValue={selectedHasilFU?.minat}
             />
           </div>
           <div>
@@ -62,6 +66,7 @@ const Page = () => {
               placeholder="Gold"
               register={register}
               className="h-[52px]"
+              defaultValue={selectedHasilFU?.warna}
             />
           </div>
           <div>
@@ -71,6 +76,7 @@ const Page = () => {
               placeholder="8"
               register={register}
               className="h-[52px]"
+              defaultValue={selectedHasilFU?.hari}
             />
           </div>
         </div>

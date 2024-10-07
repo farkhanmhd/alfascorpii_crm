@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Icon from "@/components/ui/Icon";
@@ -24,7 +26,7 @@ const DropZone = () => {
     <div>
       <div className="flex w-full flex-col items-center justify-center rounded-md border border-dashed border-secondary-500 py-[52px] text-center">
         {files.length === 0 && (
-          <div {...getRootProps({ className: "dropzone" })}>
+          <div {...getRootProps({ className: "dropzone cursor-pointer" })}>
             <input className="hidden" {...getInputProps()} />
             <img src="/assets/images/svg/upload.svg" alt="" className="mx-auto mb-4" />
             {isDragAccept ? (

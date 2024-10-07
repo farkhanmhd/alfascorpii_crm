@@ -45,7 +45,7 @@ const DPackModelTable = ({ title = "Advanced Table Two", dataTable, dataColumns,
 
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange2 = (e) => {
+  const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
 
@@ -72,7 +72,7 @@ const DPackModelTable = ({ title = "Advanced Table Two", dataTable, dataColumns,
                 <Fileinput
                   name="basic"
                   selectedFile={selectedFile}
-                  onChange={handleFileChange2}
+                  onChange={handleFileChange}
                   className="h-[52px] lg:w-[320px]"
                   accept=".xlsx, .xls"
                 />
@@ -80,7 +80,7 @@ const DPackModelTable = ({ title = "Advanced Table Two", dataTable, dataColumns,
                   icon="heroicons-outline:cloud-arrow-up"
                   text="Upload"
                   className="btn-primary"
-                  link={`/${tableName}preview`}
+                  link={`/${tableName}/preview`}
                 />
               </div>
               <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />

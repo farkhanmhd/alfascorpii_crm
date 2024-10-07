@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { Suspense } from "react";
+import { usePathname } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import Header from "@/components/partials/header";
 import Sidebar from "@/components/partials/sidebar";
@@ -12,10 +12,8 @@ import useContentWidth from "@/hooks/useContentWidth";
 import useMenuLayout from "@/hooks/useMenuLayout";
 import useMenuHidden from "@/hooks/useMenuHidden";
 import Footer from "@/components/partials/footer";
-// import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import MobileMenu from "@/components/partials/sidebar/MobileMenu";
 import useMobileMenu from "@/hooks/useMobileMenu";
-import useMonoChrome from "@/hooks/useMonoChrome";
 import MobileFooter from "@/components/partials/footer/MobileFooter";
 import useRtl from "@/hooks/useRtl";
 import useDarkMode from "@/hooks/useDarkMode";
@@ -23,8 +21,8 @@ import useSkin from "@/hooks/useSkin";
 import Loading from "@/components/Loading";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import useNavbarType from "@/hooks/useNavbarType";
-import { motion, AnimatePresence } from "framer-motion";
-export default function RootLayout({ children }) {
+import { motion } from "framer-motion";
+export default function Template({ children }) {
   const { width, breakpoints }: any = useWidth();
   const [collapsed] = useSidebar();
   const [isRtl] = useRtl();
@@ -54,28 +52,24 @@ export default function RootLayout({ children }) {
   return (
     <div
       dir={isRtl ? "rtl" : "ltr"}
-      className={`app-warp    ${isDark ? "dark" : "light"} ${
+      className={`app-warp ${isDark ? "dark" : "light"} ${
         skin === "bordered" ? "skin--bordered" : "skin--default"
-      }
-      ${navbarType === "floating" ? "has-floating" : ""}
-      `}
+      } ${navbarType === "floating" ? "has-floating" : ""} min-h-screen`}
     >
       <ToastContainer />
       <Header className={width > breakpoints.xl ? switchHeaderClass() : ""} />
-      {menuType === "vertical" && width > breakpoints.xl && !menuHidden && (
-        <Sidebar />
-      )}
+      {menuType === "vertical" && width > breakpoints.xl && !menuHidden && <Sidebar />}
       <MobileMenu
         className={`${
           width < breakpoints.xl && mobileMenu
-            ? "left-0 visible opacity-100  z-[9999]"
-            : "left-[-300px] invisible opacity-0  z-[-999] "
+            ? "visible left-0 z-[9999] opacity-100"
+            : "invisible left-[-300px] z-[-999] opacity-0"
         }`}
       />
       {/* mobile menu overlay*/}
       {width < breakpoints.xl && mobileMenu && (
         <div
-          className="overlay bg-slate-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999]"
+          className="overlay fixed inset-0 z-[999] bg-slate-900/50 opacity-100 backdrop-blur-sm backdrop-filter"
           onClick={() => setMobileMenu(false)}
         ></div>
       )}
@@ -86,12 +80,8 @@ export default function RootLayout({ children }) {
         }`}
       >
         {/* md:min-h-screen will h-full*/}
-        <div className="page-content   page-min-height  ">
-          <div
-            className={
-              contentWidth === "boxed" ? "container mx-auto" : "container-fluid"
-            }
-          >
+        <div className="page-content page-min-height">
+          <div className={contentWidth === "boxed" ? "container mx-auto" : "container-fluid"}>
             <motion.div
               key={location}
               initial="pageInitial"
@@ -117,6 +107,7 @@ export default function RootLayout({ children }) {
                 duration: 0.5,
               }}
             >
+              <Breadcrumbs />
               <Suspense fallback={<Loading />}>{children}</Suspense>
             </motion.div>
           </div>

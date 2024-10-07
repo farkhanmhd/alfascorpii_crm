@@ -47,7 +47,7 @@ const Navmenu = ({ menus }) => {
         {menus.map((item, i) => (
           <li
             key={i}
-            className={`single-sidebar-menu ${item.child ? "item-has-children" : ""} ${activeSubmenu === i ? "open" : ""} ${locationName === item.link ? "menu-item-active" : ""}`}
+            className={`single-sidebar-menu ${item.child ? "item-has-children" : ""} ${activeSubmenu === i ? "open" : ""} ${locationName === item.link || location === item.link ? "menu-item-active" : ""}`}
           >
             {/* single menu with no childred*/}
             {!item.child && !item.isHeadr && (
